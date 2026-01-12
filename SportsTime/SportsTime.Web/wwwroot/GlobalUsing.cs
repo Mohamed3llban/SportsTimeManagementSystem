@@ -1,0 +1,13 @@
+﻿global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Localization;
+global using Microsoft.AspNetCore.Mvc;
+global using Newtonsoft.Json;
+global using SportsTime.Resource;
+global using SportsTime.Resource.Resources;
+global using SportsTime.Service.Interface.IFinance;
+global using SportsTime.Web.Constants
+global using SportsTime.Web.Controllers.Base;
+global using SportsTime.Web.Managers;
+global using System.Data;
+global using SportsTime.Model.Reports;
+global using SportsTime.Web.Constants.PermissionsClass;

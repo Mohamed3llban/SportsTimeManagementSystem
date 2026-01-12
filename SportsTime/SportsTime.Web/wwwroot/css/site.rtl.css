@@ -1,0 +1,6 @@
+﻿
+.svg-icon-4 svg,
+.menu-item .menu-link .menu-arrow:after 
+{
+    transform: rotateZ(180deg) ;
+}

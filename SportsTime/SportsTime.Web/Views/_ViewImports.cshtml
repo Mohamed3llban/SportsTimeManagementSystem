@@ -1,0 +1,19 @@
+﻿@using SportsTime.Web
+@using SportsTime.Web.Managers
+@namespace SportsTime.Web.Pages
+@using Microsoft.AspNetCore.Identity
+@using SportsTime.Resources.Resources;
+@using SportsTime.Models.DTOs.Training;
+@using SportsTime.Models.DTOs.Sports;
+@using SportsTime.Models.DTOs.Finance;
+@using SportsTime.Models.DTOs.Users;
+@using SportsTime.Models.DTOs.Reports;
+@using Microsoft.AspNetCore.Authorization
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using SportsTime.Web.Models
+@inject SportsTime.Resources.Resources.LocalizeService Localizer
+@inject SportsTime.Web.Managers.SessionManager _sessionManager
+@inject IAuthorizationService _authorizationService
+@inject IConfiguration _configuration
+@*@using SportsTime.Web.Constants*@

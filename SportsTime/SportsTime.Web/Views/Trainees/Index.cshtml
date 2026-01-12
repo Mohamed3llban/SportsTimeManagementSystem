@@ -1,0 +1,388 @@
+﻿@model TraineeReportParameterModel
+@{
+    ViewData["Title"] = "Trainees";
+}
+
+<!--begin::Main-->
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+    <!--begin::Content wrapper-->
+    <div class="d-flex flex-column flex-column-fluid">
+        <!--begin::Toolbar-->
+        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+            <!--begin::Toolbar container-->
+            <div id="kt_app_toolbar_container" class="rtl app-container container-xxl d-flex flex-stack">
+                <!--begin::Page title-->
+                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                    <!--begin::Title-->
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">قائمة اللاعبين</h1>
+                    <!--end::Title-->
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">
+                            <a href="@Url.Content("~/Home/Index")" class="text-muted text-hover-primary">الرئيسية</a>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">اللاعبين</li>
+                        <!--end::Item-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Page title-->
+            </div>
+            <!--end::Toolbar container-->
+        </div>
+        <!--end::Toolbar-->
+        <!--begin::Content-->
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <!--begin::Content container-->
+            <div id="kt_app_content_container" class="app-container container-xxl">
+                <!--begin::Form-->
+                @*<form asp-controller="Trainees" asp-action="Print" class="card-body py-20 w-100 mw-xl-700px px-9" novalidate="novalidate" enctype="multipart/form-data">*@
+                <form>
+                    <!--begin::Card-->
+                    <div class="card mb-7">
+                        <!--begin::Card body-->
+                        <div class="card-body">
+                            <!--begin::Compact form-->
+                            <div class="d-flex align-items-center">
+                                <!--begin::Input group-->
+                                <div class="position-relative w-md-400px me-md-2">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                                    <span class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor" />
+                                            <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                    <input type="text" class="form-control form-control-solid ps-10" id="Name" asp-for="Name" placeholder="بحث بالأسم" />
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin:Action-->
+                                <div class="d-flex align-items-center">
+                                    <button id="retriveButton" type="button" class="btn btn-primary me-5">بحث</button>
+                                    <a id="kt_horizontal_search_advanced_link" class="btn btn-link" data-bs-toggle="collapse" href="#kt_advanced_search_form">البحث المتقدم</a>
+                                    <!--begin::Add Trainee-->
+                                    <a class="btn btn-primary" style="position:absolute; left:5%;" target="_blank" href="@Url.Content("~/Trainees/Create")">إضافة لاعب</a>
+                                    <!--end::Add Trainee-->
+                                </div>
+                                <!--end:Action-->
+                            </div>
+                            <!--end::Compact form-->
+                            <!--begin::Advance form-->
+                            <div class="collapse" id="kt_advanced_search_form">
+                                <!--begin::Separator-->
+                                <div class="separator separator-dashed mt-9 mb-6"></div>
+                                <!--end::Separator-->
+                                <!--begin::Row 1 -->
+                                <div class="row g-12">
+                                    <!--begin::Col-->
+                                    <div class="col-xxl-12">
+                                        <!--begin::Row-->
+                                        <div class="row g-12">
+                                            <!--begin::Col-->
+                                            <div class="col-lg-6">
+                                                <label class="fs-6 form-label fw-bold text-dark">الكود</label>
+                                                <input type="text" class="form-control form-control-lg form-control-solid" id="Code" asp-for="Code" />
+                                            </div>
+                                            <!--end::Col-->
+                                            @*<!--begin::Col-->
+                                            <div class="col-lg-4">
+                                            <label class="fs-6 form-label fw-bold text-dark">Status</label>
+                                            <div class="form-check form-switch form-check-custom form-check-solid mt-1">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexSwitchChecked" checked="checked" />
+                                            <label class="form-check-label" for="flexSwitchChecked">Active</label>
+                                            </div>
+                                            </div>
+                                            <!--end::Col-->*@
+                                        </div>
+                                        <!--end::Row-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                                <!--end::Row 1 -->
+                                <!--begin::Row 2 -->
+                                <div class="row g-12" style="margin-top:30px;">
+                                    <!--begin::Col-->
+                                    <div class="col-xxl-12">
+                                        <!--begin::Row-->
+                                        <div class="row g-12">
+
+                                            <!--begin::Col-->
+                                            <div class="col-lg-4">
+                                                <label class="fs-6 form-label fw-bold text-dark">النشاط الرياضي</label>
+                                                <!--begin::Select-->
+                                                <select id="SportId" onchange="ReadTrainersBySportId()" asp-for="SportId" data-control="select2" class="form-select form-select-solid">
+                                                </select>
+                                                <!--end::Select-->
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-4">
+                                                <label class="fs-6 form-label fw-bold text-dark">المدرب</label>
+                                                <!--begin::Select-->
+                                                <select id="TrainerId" asp-for="TrainerId" data-control="select2" class="form-select form-select-solid">
+                                                </select>
+                                                <!--end::Select-->
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-4">
+                                                <label class="fs-6 form-label fw-bold text-dark">النوع</label>
+                                                <!--begin::Select-->
+                                                <select id="Gender" asp-for="Gender" class="form-select form-select-solid" data-control="select2" data-placeholder="ذكر/أنثى" data-hide-search="true">
+                                                    <option value="">أختر</option>
+                                                    <option value="1">ذكر</option>
+                                                    <option value="2">أنثى</option>
+                                                </select>
+                                                <!--end::Select-->
+                                            </div>
+                                            <!--end::Col-->
+
+                                        </div>
+                                        <!--end::Row 2 -->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                                <!--end::Row-->
+
+                            </div>
+                            <!--end::Advance form-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Card-->
+                </form>
+                <!--end::Form-->
+                <!--begin::Card-->
+                <div class="card card-flush" style="height:600px; overflow-y:scroll">
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Table container-->
+                        <div class="table-responsive">
+                            <!--begin::Table-->
+                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+                                <!--begin::Table head-->
+                                <thead>
+                                    <!--begin::Table row-->
+                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="align-center">اسم اللاعب</th>
+                                        <th class="align-center">الكود</th>
+                                        <th class="align-center">النوع</th>
+                                        <th class="align-center">النشاط</th>
+                                        <th class="align-center">المدرب المختص</th>
+                                        <th class="align-center">تاريخ الإنضمام</th>
+                                        <th class="align-center">العنوان</th>
+                                        <th class="align-center">رقم الهاتف</th>
+                                        <th class="align-center">الإجراءات</th>
+                                    </tr>
+                                    <!--end::Table row-->
+                                </thead>
+                                <!--end::Table head-->
+                                <!--begin::Table body-->
+                                <tbody id="TraineesGrid" class="align-center fw-semibold text-gray-600">
+                                </tbody>
+                                <!--end::Table body-->
+                            </table>
+                            <!--end::Table-->
+                        </div>
+                        <!--end::Table container-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Card-->
+            </div>
+            <!--end::Content container-->
+        </div>
+        <!--end::Content-->
+    </div>
+    <!--end::Content wrapper-->
+</div>
+<!--end:::Main-->
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        ReadSports();
+        document.getElementById("retriveButton").click();
+        $("span[role='combobox']").attr("dir", "rtl");
+    });
+
+    function ReadTrainersBySportId() {
+        $('#TrainerId').children().remove();
+        $.ajax({
+            type: "Get",
+            url: '/DropDownList/READ_TrainersBySportId?sportId=' + $("#SportId").val(),
+            success: function (result) {
+                if (result != null && result != undefined) {
+
+                    const TrainersDDL = document.getElementById("TrainerId");
+                    const option = document.createElement("option");
+                    option.text = "أختر";
+                    option.value = "";
+                    TrainersDDL.add(option);
+
+                    for (var i = 0; i < result.length; i++) {
+                        const option = document.createElement("option");
+                        option.text = result[i].textField;
+                        option.value = result[i].valueField;
+                        TrainersDDL.add(option);
+                    }
+                }
+            }
+        });
+    }
+
+    function ReadSports() {
+        $('#SportId').children().remove();
+        $.ajax({
+            type: "Get",
+            url: '/DropDownList/READ_Sports',
+            success: function (result) {
+                if (result != null && result != undefined) {
+
+                    const SportsDDL = document.getElementById("SportId");
+                    const option = document.createElement("option");
+                    option.text = "أختر";
+                    option.value = "";
+                    SportsDDL.add(option);
+
+                    for (var i = 0; i < result.length; i++) {
+                        const option = document.createElement("option");
+                        option.text = result[i].textField;
+                        option.value = result[i].valueField;
+                        SportsDDL.add(option);
+                    }
+                    ReadTrainersBySportId();
+                }
+            }
+        });
+    }
+
+    document.getElementById("retriveButton").onclick = function () {
+        $('#TraineesGrid').children().remove()
+        let formdata = $('form').serialize();
+        $.ajax({
+            type: "Get",
+            data: formdata,
+            url: '/Trainees/ReadTraineesGrid',
+            success: function (result) {
+                if (result != null && result != undefined) {
+                    for (var i = 0; i < result.length; i++) {
+                        var tr = `<tr>
+                                                <!--begin::Name=-->
+                                                    <td>` + result[i].name + `</td>
+                                                <!--end::Name=-->
+                                                <!--begin::Code=-->
+                                                    <td>`+ result[i].code + `</td>
+                                                <!--end::Code=-->
+                                                <!--begin::Email=-->
+                                                    <td> ` + result[i].genderName + `</td>
+                                                <!--end::Email=-->
+                                                <!--begin::Company=-->
+                                                <td> ` + result[i].sportName + `</td>
+                                                <!--end::Company=-->
+                                                <!--begin::Payment method=-->
+                                                <td data-filter="mastercard"> ` + result[i].trainerName + `</td>
+                                                <!--end::Payment method=-->
+                                                <!--begin::Date=-->
+                                                <td> ` + result[i].joinDateFormated + `</td>
+                                                <td> ` + result[i].address + `</td>
+                                                <td> ` + result[i].phoneNumber + `</td>
+                                                <!--end::Date=-->
+
+                                                <!--begin::Action=-->
+                                                    <td style="text-align: center !important;">
+
+
+                                                        <!--begin::Menu item-->
+                                                        <div>
+                                                                <a href="/Trainees/Edit/`+ result[i].id + `"
+                                                                    style="background-color: #33b1f9;color: white;border-radius: 5px; padding:5px;"
+                                                                    target="_blank">تعديل</a>
+                                                        <!--end::Menu item-->
+
+
+                                                        <!--begin::Menu item-->
+                                                                <a onclick='confirmDelete(` + result[i].id + `)' href='#'
+                                                                data-kt-customer-table-filter="delete_row"
+                                                                style="background-color: red;color: white;border-radius: 5px; padding:5px;">حذف</a>
+                                                        </div>
+                                                        <!--end::Menu item-->
+
+
+                                                    </td>
+                                                <!--end::Action=-->
+
+                                            </tr>`
+                        $('#TraineesGrid').append(tr);
+
+                    }
+                }
+            }
+        });
+    };
+
+    function confirmDelete(id) {
+        Swal.fire({
+            title: "هل انت متأكد من الحذف؟",
+            text: "بمجرد الحذف ، لن تتمكن من استرداد هذا العنصر!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "نعم, متأكد",
+            cancelButtonText: 'إلغاء'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: '/Trainees/Delete?id=' + id,
+                    success: function (result) {
+                        if (result) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'تم الحذف بنجاح',
+                                confirmButtonText: "موافق",
+                            }).then((function () {
+                                location.reload();
+                            }))
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'فشلت عملية الحذف',
+                                showConfirmButton: false,
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'حدث خطأ!',
+                            showConfirmButton: false,
+                        });
+                    }
+                });
+            }
+            else {
+                Swal.fire({
+                    title: 'تم الإلغاء',
+                    text: 'لم يتم حذف العنصر الخاص بك!',
+                    icon: 'warrning',
+                    showConfirmButton: false,
+                }
+                )
+            }
+        })
+    }
+
+</script>
